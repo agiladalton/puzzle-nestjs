@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PzusuarioModule } from './pzusuario/pzusuario.module';
+import { PztareaModule } from './pztarea/pztarea.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PzusuarioModule } from './pzusuario/pzusuario.module';
         useCreateIndex: true
       }),
     PzusuarioModule,
+    PztareaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
