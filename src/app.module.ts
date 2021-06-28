@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PzusuarioModule } from './pzusuario/pzusuario.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AppService } from './app.service';
         useFindAndModify: false,
         useCreateIndex: true
       }),
+    PzusuarioModule,
   ],
   controllers: [AppController],
   providers: [AppService],
