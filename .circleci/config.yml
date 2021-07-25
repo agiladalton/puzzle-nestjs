@@ -4,6 +4,25 @@ version: 2.1
 orbs:
   node: circleci/node@4.1
 
+jobs:
+  run_tests:
+    docker:
+      - image: circleci/node@4.1
+    steps:
+      - checkout
+      - run:
+        name: Instalar dependencias NPM
+        command: |
+          npm install --save
+      - run:
+        name: Ejecutar pruebas unitarias
+        command: |
+          ./node_modules/mocha/bin/mocha test/ --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-results
+      - store_test_results:
+        path: test-results
+      - store_artifacts:
+        path: test-results
+
 workflows:
   sample:
     jobs:
